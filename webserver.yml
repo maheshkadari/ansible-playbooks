@@ -1,0 +1,7 @@
+---
+ - host: all
+   tasks:
+    - name: install webserver
+      apt:
+        name: Apache2
+        state: present
