@@ -14,3 +14,15 @@
          name: apache2
          state: restarted 
       when: ansible_os_family == "Debian"
+
+    - name: install webserver redhat
+      yum:
+        name: httph
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: restart webserver redhat 
+      service:
+         name: httpd
+         state: restarted
+      when: ansible_os_family == "RedHat"
