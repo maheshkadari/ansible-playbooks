@@ -1,4 +1,4 @@
 ---
 var: values
-webserpakonubuntu: apache222222
-webserpakonredhat: httpdppp
+webserpakonubuntu: apache2
+webserpakonredhat: httpd
