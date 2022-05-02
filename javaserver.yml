@@ -3,26 +3,14 @@
    become: yes
    gather_facts: yes
    tasks:
-    - name: install webserver
+    - name: install java
       apt:
         name: "{{javaserpakonubuntu}}"
         state: present
       when: ansible_os_family == "Debian"
 
-    - name: restarting apache2
-      service:
-         name: "{{javaserpakonubuntu}}"
-         state: restarted 
-      when: ansible_os_family == "Debian"
-
-    - name: install webserver redhat
+    - name: install java redhat
       yum:
         name: "{{javaserpakonredhat}}"
         state: present
-      when: ansible_os_family == "RedHat"
-
-    - name: restart webserver redhat 
-      service:
-         name: "{{javaserpakonredhat}}"
-         state: restarted
       when: ansible_os_family == "RedHat"
