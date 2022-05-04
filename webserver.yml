@@ -7,6 +7,9 @@
       apt:
         name: "{{webserpakonubuntu}}"
         state: present
+        register: apt 
+      debug:
+         msg:"{{apt}}"
       when: ansible_os_family == "Debian"
 
     - name: restarting apache2
