@@ -10,10 +10,6 @@
         register: myresult
       when: ansible_os_family == "Debian"
 
-    - name: ubuntu result 
-      debug:
-         msg: "{{myresult}}"
-
     - name: restarting apache2
       service:
          name: "{{webserpakonubuntu}}"
@@ -24,6 +20,7 @@
       yum:
         name: "{{webserpakonredhat}}"
         state: present
+        register: myresult
       when: ansible_os_family == "RedHat"
 
     - name: restart webserver redhat 
@@ -31,3 +28,7 @@
          name: "{{webserpakonredhat}}"
          state: restarted
       when: ansible_os_family == "RedHat"
+
+    - name: display results 
+      debug:
+        msg: "{{myresult}}"
