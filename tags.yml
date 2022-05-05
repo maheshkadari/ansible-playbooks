@@ -6,13 +6,13 @@
    - name: install tree
      apt:
       name: tree
-      status: present
+      state: present
      tags: tag01
      when: ansible_os_family == "Debian"
 
    - name: install git
      apt:
       name: git
-      status: present
+      state: present
      tags: tag02
      when: ansible_os_family == "Debian"
