@@ -7,12 +7,12 @@
      apt:
       name: tree
       status: present
-      tags: tag01
+     tags: tag01
      when: ansible_os_family == "Debian"
 
    - name: install git
      apt:
       name: git
       status: present
-      tags: tag02
+     tags: tag02
      when: ansible_os_family == "Debian"
