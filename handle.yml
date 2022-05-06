@@ -7,12 +7,14 @@
       apt:
         name: apache2
         state: present
+      notify: restart webserver
       when: ansible_os_family == "Debian"
 
     - name: install webserver in redhat
       yum:
         name: httpd
         state: present
+      notify: restart webserver
       when: ansible_os_family == "RedHat"
   
    handlers:
