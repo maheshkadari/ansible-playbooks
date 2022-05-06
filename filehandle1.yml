@@ -5,4 +5,4 @@
    - name: copy dynamic files in nodes
      template:
        src: dynamicfile.j2
-       dest: nano /var/www/html/index.html
+       dest: /var/www/html/index.html
