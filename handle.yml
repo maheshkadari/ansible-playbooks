@@ -7,14 +7,12 @@
       apt:
         name: apache2
         state: present
-      notify: restart webserver
       when: ansible_os_family == "Debian"
     
     - name: i want to copy static file in ansible nodes
       copy:
           src: staticfile.html 
           dest: /var/www/html/index.html
-      notify: restart webserver
       when: ansible_os_family == "Debian"
 
    handlers:
