@@ -8,8 +8,10 @@
       apt: 
         name: apache2
         state: present
+      when: ansible_os_family == "Debian"
 
     - name: i want to copy static file in ansible nodes
       copy:
           src: staticfile.html 
           dest: /var/www/html/index.html
+      when: ansible_os_family == "Debian"
