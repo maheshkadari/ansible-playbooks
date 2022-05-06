@@ -13,7 +13,6 @@
       apt:
         name: wgit
         state: presen
-      ignore_errors: yes
       when: ansible_os_family == "Debian"
   
     - name: install tree
