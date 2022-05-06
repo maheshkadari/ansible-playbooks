@@ -1,0 +1,22 @@
+---
+ - hosts: webserver 
+   become: yes
+   gather_facts: yes
+   tasks:
+    - name: install git
+      apt: 
+        name: git
+        state: present
+      when: ansible_os_family == "Debian"
+
+    - name: install wget
+      apt:
+        name: wgit
+        state: present
+      when: ansible_os_family == "Debian"
+  
+    - name: install tree
+      apt:
+        name: tree
+        state: present
+      when: ansible_os_family == "Debian"
