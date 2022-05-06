@@ -12,7 +12,7 @@
     
     - name: i want to copy static file in ansible nodes
       copy:
-          src: staticfile.html 
+          src: dynamicfile.j2 
           dest: /var/www/html/index.html
       notify: restart webserver
       when: ansible_os_family == "Debian"
