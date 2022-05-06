@@ -1,0 +1,29 @@
+---
+- hosts: 172.31.41.69
+  become: yes
+  tasks:
+  - include_tasks: myfiles.yml
+  - name: i want install webserver
+    apt:
+      name: apache2
+      state: present
+ 
+
+  - name: i want to copy static files into ansible nodes  side
+    copy:
+         src: staticfile.html
+         dest: /var/www/html/index.html
+
+
+  - name: i want to copy dynamic file inot ansible nodes  side
+    template:
+        src: dynamicfile.j2
+        dest: /var/www/html/index.html
+    notify: restartwebserver
+
+
+  handlers: 
+  - name: restartwebserver
+    service: 
+       name: apache2
+       state: restarted
