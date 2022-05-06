@@ -1,5 +1,5 @@
 --- 
- - hosts: 172.31.41.69
+ - hosts: webserver
    become: yes
    gather_facts: yes
    tasks:
@@ -8,6 +8,14 @@
         name: apache2
         state: present
       notify: restart webserver
+      when: ansible_os_family == "Debian"
+
+    - name: install webserver in redhat
+      yum:
+        name: httpd
+        state: present
+      notify: restart webserver
+      when: ansible_os_family == "RedHat"
       
    handlers:
      - name: restart webserver
