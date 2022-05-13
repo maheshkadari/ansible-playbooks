@@ -2,7 +2,7 @@
  - name: add tomcat
    user:
       name: tomcat 
-      hame: /opt/tomcat
+      home: /opt/tomcat
       shell: /bin/false
       state: present 
  
